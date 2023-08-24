@@ -2,8 +2,12 @@
 #define MONTY_H
 
 #include <stdlib.h>
+#include <ctype.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include <stdio.h>
-#include <strings.h>
+#include <string.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -34,3 +38,29 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ *strut monty_t - defines global variables
+ *@arg: value
+ *@file: pointer to monty file
+ *@line: line content
+ *@set_stack: checks for stack
+ */
+
+typedef struct monty_t
+{
+	char *arg;
+	FILE *file;
+	char *str;
+	int set_stack;
+} monty_s;
+
+extern monty_s monty;
+
+int execute(char *str, stack_t **head, unsigned int counter, FILE *file);
+void func_push(stack_t **head,unsigned  int line_counter);
+void func_pall(stack_t **head, unsigned int count);
+void add_node(stack_t **head, int n);
+
+
+#endif
