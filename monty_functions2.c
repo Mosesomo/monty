@@ -3,7 +3,7 @@
 /**
  *func_swap - function that swap top elements of the stack
  *@head: head pointer of the stack
- *@line_counter - line number
+ *@line_counter: line number
  */
 
 void func_swap(stack_t **head, unsigned int line_counter)
@@ -38,10 +38,10 @@ void func_add(stack_t **head, unsigned int line_counter)
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_counter);
-                fclose(monty.file);
-                free(monty.str);
-                free_stack(*head);
-                exit(EXIT_FAILURE);
+		fclose(monty.file);
+		free(monty.str);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
 	}
 	element = (*head)->n + (*head)->next->n;
 	temp = *head;

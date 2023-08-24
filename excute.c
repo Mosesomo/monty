@@ -4,7 +4,7 @@
 
 /**
  *execute - function excutes the monty instruction
- *@str: line pointer
+ *@content: line pointer
  *@head: head pointer to stack
  *@counter: line number
  *@file: file pointer
