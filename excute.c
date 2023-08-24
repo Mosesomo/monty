@@ -17,6 +17,7 @@ int execute(char *str, stack_t **head, unsigned int counter, FILE *file)
 	instruction_t operation[] = {
 		{"push", func_push},
 		{"pall", func_pall},
+		{"pint", func_pint},
 		{NULL, NULL}
 	};
 

@@ -60,6 +60,6 @@ int execute(char *str, stack_t **head, unsigned int counter, FILE *file);
 void func_push(stack_t **head,unsigned  int line_counter);
 void func_pall(stack_t **head, unsigned int count);
 void add_node(stack_t **head, int n);
-
+void func_pint(stack_t **head, unsigned int line_counter);
 
 #endif
