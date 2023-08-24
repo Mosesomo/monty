@@ -1,7 +1,6 @@
 #define _GNU_SOURCE
 #include "monty.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 monty_s monty = {NULL, NULL, NULL, 0};
 
@@ -40,7 +39,6 @@ int main(int argc, char *argv[])
 		count++;
 		if (get_line > 0)
 		{
-			monty.str = str;
 			execute(str, &stack, count, file);
 		}
 		free(str);

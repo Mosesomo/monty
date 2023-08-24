@@ -40,18 +40,17 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- *strut monty_t - defines global variables
- *@arg: value
- *@file: pointer to monty file
- *@line: line content
- *@set_stack: checks for stack
+ *struct monty_t - defines global variables
+ *@arg: argument passed
+ *@str: line pointer
+ *@set_stack: set structures to stack or queue
  */
 
 typedef struct monty_t
 {
 	char *arg;
-	FILE *file;
 	char *str;
+	FILE *file;
 	int set_stack;
 } monty_s;
 

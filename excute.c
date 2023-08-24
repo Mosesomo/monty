@@ -26,10 +26,10 @@ int execute(char *str, stack_t **head, unsigned int counter, FILE *file)
 	opt = strtok(str, " \n\t");
 	if (opt && opt[0] == '#')
 		return (0);
-	monty.arg = NULL;
 	if (opt)
+	{
 		monty.arg = strtok(NULL, " \n\t");
-
+	}
 	while (operation[i].opcode && opt)
 	{
 		if (strcmp(opt, operation[i].opcode) == 0)

@@ -14,10 +14,11 @@ void func_push(stack_t **head, unsigned int line_counter)
 	{
 		if (monty.arg[0] == '-')
 			j++;
-		for (; monty.arg[j] != '\0'; j++)
+		while (monty.arg[j] != '\0')
 		{
-			if (monty.arg[j] > 57 || monty.arg[j] < 48)
+			if (monty.arg[j] < '0' || monty.arg[j] > '9')
 				flag = 1;
+			j++;
 		}
 		if (flag == 1)
 		{
