@@ -20,6 +20,7 @@ int execute(char *str, stack_t **head, unsigned int counter, FILE *file)
 		{"pint", func_pint},
 		{"pop", func_pop},
 		{"swap", func_swap},
+		{"add", func_add},
 		{NULL, NULL}
 	};
 
