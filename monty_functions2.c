@@ -32,15 +32,9 @@ void func_swap(stack_t **head, unsigned int line_counter)
 void func_add(stack_t **head, unsigned int line_counter)
 {
 	stack_t *temp;
-	int len = 0, element;
+	int element;
 
-	temp = *head;
-	while (temp)
-	{
-		temp = temp->next;
-		len++;
-	}
-	if (len < 2)
+	if (*head == NULL || (*head)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_counter);
                 fclose(monty.file);
@@ -48,9 +42,12 @@ void func_add(stack_t **head, unsigned int line_counter)
                 free_stack(*head);
                 exit(EXIT_FAILURE);
 	}
-	temp = *head;
-	element = temp->n + temp->next->n;
-	temp->next->n = element;
-	*head = temp->next;
-	free(temp);
+	else
+	{
+		temp = *head;
+		element = temp->n + temp->next->n;
+		temp->next->n = element;
+		*head = temp->next;
+		free(temp);
+	}
 }
