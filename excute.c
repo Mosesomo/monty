@@ -4,7 +4,7 @@
 
 /**
  *execute - function excutes the monty instruction
- *@content: line pointer
+ *@str: line pointer
  *@head: head pointer to stack
  *@counter: line number
  *@file: file pointer
@@ -12,12 +12,10 @@
  *Return: alway 0 on success
  */
 
-int execute(char *str_content, stack_t **head, unsigned int counter, FILE *file)
+int execute(char *str, stack_t **head, unsigned int counter, FILE *file)
 {
 	instruction_t operation[] = {
-		{"push", func_push},
-		{"pall", func_pall},
-		{"pint", func_pint},
+		{"push", func_push}, {"pall", func_pall}, {"pint", func_pint},
 		{"pop", func_pop},
 		{"swap", func_swap},
 		{"add", func_add},
@@ -28,13 +26,11 @@ int execute(char *str_content, stack_t **head, unsigned int counter, FILE *file)
 	unsigned int i = 0;
 	char *opt;
 
-	opt = strtok(str_content, " \n\t");
+	opt = strtok(str, " \n\t");
 	if (opt && opt[0] == '#')
 		return (0);
 	if (opt)
-	{
 		monty.arg = strtok(NULL, " \n\t");
-	}
 	while (operation[i].opcode && opt)
 	{
 		if (strcmp(opt, operation[i].opcode) == 0)
@@ -48,7 +44,6 @@ int execute(char *str_content, stack_t **head, unsigned int counter, FILE *file)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", counter, opt);
 		fclose(file);
-		free(str_content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}

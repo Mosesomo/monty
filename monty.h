@@ -20,9 +20,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -35,14 +35,15 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
  *struct monty_t - defines global variables
  *@arg: argument passed
  *@str: line pointer
+ *@file: file pointer
  *@set_stack: set structures to stack or queue
  */
 
@@ -56,8 +57,8 @@ typedef struct monty_t
 
 extern monty_s monty;
 
-int execute(char *str_content, stack_t **head, unsigned int counter, FILE *file);
-void func_push(stack_t **head,unsigned  int line_counter);
+int execute(char *str, stack_t **head, unsigned int counter, FILE *file);
+void func_push(stack_t **head, unsigned  int line_counter);
 void func_pall(stack_t **head, unsigned int count);
 void add_node(stack_t **head, int n);
 void func_pint(stack_t **head, unsigned int line_counter);
