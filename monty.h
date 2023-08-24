@@ -67,6 +67,6 @@ void func_pop(stack_t **head, unsigned int line_counter);
 void func_swap(stack_t **head, unsigned int line_counter);
 void func_add(stack_t **head, unsigned int line_counter);
 void func_nop(stack_t **head, unsigned int line_counter);
-
+void func_sub(stack_t **head, unsigned int line_counter);
 
 #endif
