@@ -10,8 +10,9 @@ void func_swap(stack_t **head, unsigned int line_counter)
 {
 	int val_swap;
 
-	if (!head || !*head || !((*head)->next))
+	if (*head == NULL || (*head)->next == NULL)
 	{
+		monty.set_stack = 0;
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_counter);
 		fclose(monty.file);
 		free(monty.str);
@@ -42,12 +43,9 @@ void func_add(stack_t **head, unsigned int line_counter)
                 free_stack(*head);
                 exit(EXIT_FAILURE);
 	}
-	else
-	{
-		temp = *head;
-		element = temp->n + temp->next->n;
-		temp->next->n = element;
-		*head = temp->next;
-		free(temp);
-	}
+	element = (*head)->n + (*head)->next->n;
+	temp = *head;
+	*head = (*head)->next;
+	free(temp);
+	(*head)->n = element;
 }

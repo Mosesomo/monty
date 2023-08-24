@@ -8,14 +8,16 @@
 
 void func_pall(stack_t **head, unsigned int count)
 {
+	stack_t *temp;
 	(void)count;
 
 	if (*head == NULL)
 		return;
-	while (*head)
+	temp = *head;
+	while (temp)
 	{
-		printf("%d\n", (*head)->n);
-		*head = (*head)->next;
+		printf("%d\n", temp->n);
+		temp = temp->next;
 	}
 }
 
@@ -32,6 +34,7 @@ void func_pint(stack_t **head, unsigned int line_counter)
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_counter);
 		fclose(monty.file);
 		free(monty.str);
+		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*head)->n);
@@ -49,6 +52,7 @@ void func_pop(stack_t **head, unsigned int line_counter)
 
 	if (*head == NULL)
 	{
+		monty.set_stack = 0;
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_counter);
 		fclose(monty.file);
 		free(monty.str);
