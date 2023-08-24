@@ -12,7 +12,6 @@ void func_swap(stack_t **head, unsigned int line_counter)
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		monty.set_stack = 0;
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_counter);
 		fclose(monty.file);
 		free(monty.str);

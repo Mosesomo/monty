@@ -53,7 +53,6 @@ void func_pop(stack_t **head, unsigned int line_counter)
 
 	if (*head == NULL)
 	{
-		monty.set_stack = 0;
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_counter);
 		fclose(monty.file);
 		free(monty.str);
