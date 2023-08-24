@@ -12,7 +12,7 @@
  *Return: alway 0 on success
  */
 
-int execute(char *content, stack_t **head, unsigned int counter, FILE *file)
+int execute(char *str_content, stack_t **head, unsigned int counter, FILE *file)
 {
 	instruction_t operation[] = {
 		{"push", func_push},
@@ -21,13 +21,14 @@ int execute(char *content, stack_t **head, unsigned int counter, FILE *file)
 		{"pop", func_pop},
 		{"swap", func_swap},
 		{"add", func_add},
+		{"nop", func_nop},
 		{NULL, NULL}
 	};
 
 	unsigned int i = 0;
 	char *opt;
 
-	opt = strtok(content, " \n\t");
+	opt = strtok(str_content, " \n\t");
 	if (opt && opt[0] == '#')
 		return (0);
 	if (opt)
@@ -47,6 +48,7 @@ int execute(char *content, stack_t **head, unsigned int counter, FILE *file)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", counter, opt);
 		fclose(file);
+		free(str_content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}

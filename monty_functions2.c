@@ -48,3 +48,15 @@ void func_add(stack_t **head, unsigned int line_counter)
 	free(temp);
 	(*head)->n = element;
 }
+
+/**
+ *func_nop - funtion that does nothing
+ *@head: pointer of the head of the stack
+ *@line_counter: line number
+ */
+
+void func_nop(stack_t **head, unsigned int line_counter)
+{
+	(void)head;
+	(void)line_counter;
+}

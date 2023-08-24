@@ -56,7 +56,7 @@ typedef struct monty_t
 
 extern monty_s monty;
 
-int execute(char *str, stack_t **head, unsigned int counter, FILE *file);
+int execute(char *str_content, stack_t **head, unsigned int counter, FILE *file);
 void func_push(stack_t **head,unsigned  int line_counter);
 void func_pall(stack_t **head, unsigned int count);
 void add_node(stack_t **head, int n);
@@ -65,5 +65,7 @@ void free_stack(stack_t *head);
 void func_pop(stack_t **head, unsigned int line_counter);
 void func_swap(stack_t **head, unsigned int line_counter);
 void func_add(stack_t **head, unsigned int line_counter);
+void func_nop(stack_t **head, unsigned int line_counter);
+
 
 #endif
