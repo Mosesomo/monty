@@ -62,5 +62,6 @@ void func_pall(stack_t **head, unsigned int count);
 void add_node(stack_t **head, int n);
 void func_pint(stack_t **head, unsigned int line_counter);
 void free_stack(stack_t *head);
+void func_pop(stack_t **head, unsigned int line_counter);
 
 #endif

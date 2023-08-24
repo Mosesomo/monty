@@ -36,3 +36,26 @@ void func_pint(stack_t **head, unsigned int line_counter)
 	}
 	printf("%d\n", (*head)->n);
 }
+
+/**
+ *func_pop - function that  removes the top element of the stack
+ *@head: doubly pointer to the stack
+ *@line_counter: line number
+ */
+
+void func_pop(stack_t **head, unsigned int line_counter)
+{
+	stack_t *temp;
+
+	if (*head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_counter);
+		fclose(monty.file);
+		free(monty.str);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	temp = *head;
+	*head = temp->next;
+	free(temp);
+}
