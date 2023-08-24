@@ -30,6 +30,7 @@ void func_pall(stack_t **head, unsigned int count)
 void func_pint(stack_t **head, unsigned int line_counter)
 {
 	stack_t *temp = *head;
+
 	if (temp == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_counter);
