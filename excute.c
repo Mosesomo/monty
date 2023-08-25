@@ -23,6 +23,7 @@ int execute(char *str, stack_t **head, unsigned int counter, FILE *file)
 		{"add", func_add},
 		{"nop", func_nop},
 		{"sub", func_sub},
+		{"mul", func_mul},
 		{NULL, NULL}
 	};
 
