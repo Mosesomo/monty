@@ -17,7 +17,7 @@ void func_sub(stack_t **head, unsigned int line_counter)
 		if (monty.file)
 			fclose(monty.file);
 		if (monty.str)
-			free(monty.arg);
+			free(monty.str);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -48,7 +48,7 @@ void func_mul(stack_t **head, unsigned int line_counter)
 		if (monty.file)
 			fclose(monty.file);
 		if (monty.str)
-			free(monty.arg);
+			free(monty.str);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
