@@ -21,7 +21,7 @@ void func_sub(stack_t **head, unsigned int line_counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	result = (*head)->n - (*head)->next;
+	result = (*head)->next->n - (*head)->n;
 	temp = *head;
 	*head = (*head)->next;
 	free(temp);
