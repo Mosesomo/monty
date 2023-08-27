@@ -25,7 +25,12 @@ void func_sub(stack_t **head, unsigned int line_counter)
 	temp = *head;
 	*head = (*head)->next;
 	free(temp);
-	(*head)->n = result;
+	temp = *head;
+        *head = (*head)->next;
+        free(temp);
+        if (monty.set_stack == 0)
+                add_node(head, result);
+
 }
 
 /**
