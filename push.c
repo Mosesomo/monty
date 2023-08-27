@@ -23,8 +23,10 @@ void func_push(stack_t **head, unsigned int line_counter)
 		if (flag == 1)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_counter);
-			fclose(monty.file);
-			free(monty.str);
+			if (monty.file)
+				fclose(monty.file);
+			if (monty.str)
+				free(monty.str);
 			free_stack(*head);
 			exit(EXIT_FAILURE);
 		}
@@ -32,8 +34,10 @@ void func_push(stack_t **head, unsigned int line_counter)
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_counter);
-		fclose(monty.file);
-		free(monty.str);
+		if (monty.file)
+			fclose(monty.file);
+		if (monty.str)
+			free(monty.str);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
