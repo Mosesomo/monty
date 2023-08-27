@@ -26,9 +26,9 @@ void func_sub(stack_t **head, unsigned int line_counter)
 	*head = (*head)->next;
 	free(temp);
 	temp = *head;
-        *head = (*head)->next;
-        free(temp);
-        add_node(head, result);
+	*head = (*head)->next;
+	free(temp);
+	add_node(head, result);
 
 }
 
