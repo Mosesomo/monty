@@ -13,8 +13,10 @@ void func_swap(stack_t **head, unsigned int line_counter)
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_counter);
-		fclose(monty.file);
-		free(monty.str);
+		if (monty.file)
+			fclose(monty.file);
+		if (monty.str)
+			free(monty.str);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -37,8 +39,10 @@ void func_add(stack_t **head, unsigned int line_counter)
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_counter);
-		fclose(monty.file);
-		free(monty.str);
+		if (monty.file)
+			fclose(monty.file);
+		if (monty.str)
+			free(monty.str);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
