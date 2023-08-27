@@ -57,8 +57,10 @@ void func_pop(stack_t **head, unsigned int line_counter)
 	if (*head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_counter);
-		fclose(monty.file);
-		free(monty.str);
+		if (monty.file)
+			fclose(monty.file);
+		if (monty.str)
+			free(monty.str);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
