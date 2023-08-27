@@ -46,7 +46,8 @@ int execute(char *str, stack_t **head, unsigned int counter, FILE *file)
 	if (opt && operation[i].opcode == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", counter, opt);
-		fclose(file);
+		if (file)
+			fclose(file);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
