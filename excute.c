@@ -14,6 +14,8 @@
 
 int execute(char *str, stack_t **head, unsigned int counter, FILE *file)
 {
+	char *opt;
+	unsigned int i = 0;
 	instruction_t operation[] = {
 		{"push", func_push},
 		{"pall", func_pall},
@@ -27,11 +29,8 @@ int execute(char *str, stack_t **head, unsigned int counter, FILE *file)
 		{NULL, NULL}
 	};
 
-	unsigned int i = 0;
-	char *opt;
-
 	opt = strtok(str, " \n\t");
-	if (opt && opt[0] == '#')
+	if (opt == NULL || opt[0] == '#')
 		return (0);
 	if (opt)
 		monty.arg = strtok(NULL, " \n\t");
