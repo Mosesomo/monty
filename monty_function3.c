@@ -17,8 +17,10 @@ void func_sub(stack_t **head, unsigned int line_counter)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d:  can't sub, stack too short\n", line_counter);
-		fclose(monty.file);
-		free(monty.arg);
+		if (monty.file)
+			fclose(monty.file);
+		if (monty.str)
+			free(monty.arg);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -46,8 +48,10 @@ void func_mul(stack_t **head, unsigned int line_counter)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d:  can't mul, stack too short\n", line_counter);
-		fclose(monty.file);
-		free(monty.arg);
+		if (monty.file)
+			fclose(monty.file);
+		if (monty.str)
+			free(monty.arg);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
